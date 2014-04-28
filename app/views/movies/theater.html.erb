@@ -1,0 +1,38 @@
+
+<div id="theater" class="clearfix">
+	<h1 class="content_title">MDN Theater</h1>
+		<section id="theater_upper" class="clearfix gallery_wrap">
+			
+			<div id="theater_caption"><caption><h1><%= @movie.title %></h1></caption></div>
+			<div id="target_video">
+				  <iframe width="600" height="314" src="http://www.youtube.com/embed/<%= @movie.url %>?wmode=transparent"  frameborder="0" allowfullscreen></iframe>
+				  <p><%= @movie.description %></p>
+			</div> 
+		</section>
+		
+		<!-- This is a jquery plug-in for the carousel available here - http://fredhq.com/projects/roundabout -->
+		<!-- Display properties for the carousel determined by css and in variable values in jquery.roundabout.js file -->
+		<section id="theater_middle" class="clearfix">
+			<div id="carousel" class="clearfix">
+				<h1>More Videos From MDN</h1>
+					<ul>
+						<%= render_cell :carousel, :display, :movies => @movies %>
+				    </ul>
+			</div>
+			<div class="next" id="nav-next"><%= image_tag 'nav-back.gif' %></div>
+			<div class="back" id="nav-back"><%= image_tag 'nav-next.gif' %></div>
+			<div id="movie_browser"><a href="/movies/browser">Browse MDN's Complete List of Videos</a></div>
+		</section>
+<!-- This is a jquery plug-in for the carousel on theater.html.erb -->
+
+	  	  
+	<script>
+	   $(document).ready(function() {
+	      $('ul').roundabout({
+	      	btnNext: ".next",
+	      	btnPrev: ".back"
+	      });
+	   });
+	</script>
+</div>
+

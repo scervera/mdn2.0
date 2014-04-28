@@ -1,0 +1,45 @@
+
+ 	<div id="browser_body">
+		<h1>MDN Video Archive Browser - CAUTION!</h1>
+		<p>Welcome to MDN's video clip browser. "Truth that Transforms needs Training that Sustains", and the videos listed here 
+		provide powerful training for the man who seeks to be transformed in Christ. But be warned...watching these videos is 
+		likely to lead to spontaneous changes like:</p> 
+		
+		<ul>
+			<li>becoming a man of your word ("Do what you say, say what you do")</li>
+			<li>losing friendships (You crazy Jesus freak)</li>
+			<li>leading your family in prayer...(Wanna see your wife get hot for you?!)</li>
+			<li>addictions to pornography broken</li>
+			<li>sudden loss of fear, anxiety, and shame</li>
+			<li>grand realizations of purpose and meaning</li>
+			<li>new found strength and confidence (like you're a prince or something)</li>
+		</ul>
+		<p>The list goes on...This is some dangerous stuff here. </br><span style="font-weight: bold; "> You were warned...</span> </p>
+	</div>
+	<div id="movie_list" >	
+		<div class="pagination"> <%= will_paginate @movies %> </div></br>
+				<table class="table-content1">
+					<thead>
+					  <tr>
+					    <th>Title</th>
+					    <th>Speaker</th>
+					    <th>Description</th>
+					    <th></th>
+					  </tr>
+				    </thead>
+				<% @movies.each do |movie| %>
+				  <tr>
+				    <td class="movie_title"><%= movie.title %></td>
+				    <td><%= movie.speaker %></td>
+				    <td><%= movie.description %></td>
+				    <td><%= link_to((:Watch), :action => 'theater', :method => :theater, :id => movie.id ) %> </td>
+				  </tr>
+				<% end %>
+				</table>
+
+		<div class="pagination"> <%= will_paginate @movies %> </div></br>
+	</div>
+	<div id="eyeball"></div>
+	<div id="dynamite"><%= image_tag "movies/dynamite.gif"%></div>
+	
+

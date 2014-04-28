@@ -1,0 +1,52 @@
+<div id="top-image">
+	<%= image_tag("prayer/prayer_top_image.jpg", :width => '730', :height => '295', :alt => 'Men standing and with MDN coaches at an MDN Discipleship Boot Camp')%>
+</div>
+<p id="notice"><%= notice %></p>
+</br>
+<p>
+  <b>First name:</b>
+  <%= @prayer.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @prayer.last_name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @prayer.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @prayer.state %>
+</p>
+
+<p>
+  <b>Request:</b>
+  <%= @prayer.request %>
+</p>
+
+<p>
+  <b>Type of Prayer:</b>
+  <%= @prayer.prayer_type %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @prayer.email %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @prayer.age %>
+</p>
+<p>
+  <b>Sex:</b>
+  <%= @prayer.sex %>
+</p>
+</br>
+</br>
+ <%= button_to "Home Page", root_path %> <%= button_to 'New Prayer Request', { :action => "new" } %>
+  

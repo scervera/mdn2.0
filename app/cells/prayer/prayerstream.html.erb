@@ -1,0 +1,17 @@
+
+
+<!-- this is the cell display html for the prayer_cell.rb controller -->
+
+<div id="prayers">
+<!-- this loop is necessary to iterate through the array passed in @prayers -->
+		<ul id="scroller">
+		<% @prayers.each do |prayer| %>
+		  
+		    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a ><%= prayer.first_name %> from <%= prayer.city %> prays: "<%= prayer.request %>".....</a></li>
+		
+		<% end %>
+		
+		<li>This is a scrolling prayer stream. Check it out</li>
+		</ul>
+</div>
+

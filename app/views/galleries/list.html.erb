@@ -1,0 +1,43 @@
+
+	<div id="gallery">
+		<div id="gallery_header">
+			<div class="headers"><h1>MDN Photo Gallery</h1></div>
+		</div>
+
+		<% @galleries.each do |gallery| %>
+
+		<div class="gallery_wrap clearfix">
+			<div id="gallery_left">
+				<div id="gallery_head"><h2><%= gallery.gallery_name.html_safe %></h2></div>
+				<div id="gallery_desc"><%= gallery.description.html_safe %></div>
+			</div>
+			<div id="gallery_rt">
+				<div id="gallery_featured">
+					<% for asset in gallery.assets.featured %>
+					  <%= link_to( image_tag(asset.image.url(:thumb)), asset.image.url(:large), :class => "fancybox", :rel => gallery.id ) %>
+					<% end %>
+				</div>
+				<div id="gallery_photos">	
+				<% for asset in gallery.assets %>	
+				  <%= link_to( image_tag(asset.image.url(:thumb)), asset.image.url(:large), :class => "fancybox", :rel => gallery.id ) %>
+				<% end %>	
+				</div>
+			</div>
+		</div>
+		</br>
+		<% end %>
+		<br />
+	</div>
+	<div class="pagination"<%= will_paginate @galleries %></div>
+	
+	<script type="text/javascript">
+			jQuery(document).ready(function() {
+				$(".fancybox").fancybox({
+					openEffect	: 'none',
+					closeEffect	: 'none'
+					
+				});
+			});
+	</script>
+
+

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @book.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @book.author %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @book.description %>
+</p>
+
+<p>
+  <b>Subtitle:</b>
+  <%= @book.subtitle %>
+</p>
+
+<p>
+  <b>Featured book advertisement?</b>
+  <%= @book.featured %>
+</p>
+
+<% if @book.image? %>
+	<p>Thumbnail Image:<br>
+	<%= image_tag @book.image_url(:thumb).to_s %>
+	</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

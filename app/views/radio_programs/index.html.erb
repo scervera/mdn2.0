@@ -1,0 +1,31 @@
+<h1>Listing of Radio Programs</h1>
+<div class="pagination"><%= will_paginate @radio_programs %> </div></br>
+<table>
+  <tr>
+  	<th>Episode</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Featured</th>
+    <th>Display</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @radio_programs.each do |radio_program| %>
+  <tr>
+  	<td><%= radio_program.episode %></td>
+    <td><%= radio_program.title %></td>
+    <td><%= radio_program.description %></td>
+    <td><%= radio_program.date %></td>
+    <td><%= radio_program.featured %></td>
+    <td><%= link_to 'Show', radio_program %></td>
+    <td><%= link_to 'Edit', edit_radio_program_path(radio_program) %></td>
+    <td><%= button_to 'Delete', { :action => "destroy", :id => radio_program.id }, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="pagination"><%= will_paginate @radio_programs %> </div></br>
+
+<div class="button_lft"> <%= button_to 'New Radio Program', { :action => "new", :class => "button_lft" } %></div>
