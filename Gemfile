@@ -10,6 +10,8 @@ gem 'rubygems-bundler'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 3.0', require: false, group: :development
+#gem 'rvm1-capistrano3', require: false
+gem 'capistrano-rvm', '~> 0.1', require: false, group: :development 
 
 # Bundle the extra gems:
 gem 'haml'

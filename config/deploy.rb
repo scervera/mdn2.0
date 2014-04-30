@@ -22,6 +22,14 @@ set :scm, :git
 # Default value for :pty is false
 set :pty, true
 
+#From old deploy.rb file, not sure if they work in new format
+set :ssh_options, { :forward_agent => true }
+set :user, "adm1n"
+set :group, "adm1n"
+set :use_sudo, false
+#set :shared_children, shared_children + %w{public/uploads}
+
+
 # Default value for :linked_files is []
 # set :linked_files, %w{config/database.yml}
 
@@ -34,13 +42,9 @@ set :pty, true
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-
-#From old deploy.rb file, not sure if they work in new format
-set :ssh_options, { :forward_agent => true }
-set :user, "adm1n"
-set :group, "adm1n"
-set :use_sudo, false
-set :shared_children, shared_children + %w{public/uploads}
+# capistrano-rvm
+# set :rvm_type, :user                     # Defaults to: :auto
+#set :rvm_ruby_version, 'ruby-2.0.0-p353@mdn_app' # Defaults to: 'default'
 
 
 namespace :deploy do
@@ -68,30 +72,3 @@ namespace :deploy do
 
 end
 
-
-# Old Tasks
-
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-
-#   desc "Copy the database.yml file into the latest release"
-#   task :copy_in_database_yml do
-#     run "cp #{shared_path}/config/database.yml #{latest_release}/config/"
-#   end
-#   desc "Create symlink from public folder to current/public"
-#   task :symlink_to_public do
-#     run "ln -sf #{current_path}/public/ #{deploy_to}"
-#   end
-  
-  # desc "Restart the application"
-  # task :restart, :roles => :app, :except => { :no_release => true } do
-  #   run "#{try_sudo} touch #{File.join(latest_release,'tmp','restart.txt')}"
-  # end
-#  desc "Delete default web site"
-#  task :rm_default_site do
-#    run "#{try_sudo} rm /etc/apache2/sites-enabled/000-default"
-#  end
-# end
-# before "deploy:assets:precompile", "deploy:copy_in_database_yml"
-# after "deploy:update_code","deploy:copy_in_database_yml", "deploy:symlink_to_public", "deploy:restart"
