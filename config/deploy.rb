@@ -13,6 +13,9 @@ set :deploy_to, '/var/mdnapp'
 # Default value for :scm is :git
 set :scm, :git
 
+# Set the rails environment to production
+set :rails_env, 'production'
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
